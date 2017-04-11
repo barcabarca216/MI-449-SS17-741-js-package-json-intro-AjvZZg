@@ -1,0 +1,29 @@
+{
+  "name": "gamenzz",
+  "version": "1.0.0",
+  "stylelint": {
+    "extends": "stylelint-config-standard"
+  },
+  "scripts": {
+    "dev:server": "live-server",
+    "dev:sass-watch": "node-sass source/scss/styles.scss --watch --output=compiled/css/ --output-style=compressed --source-map=true",
+    "dev": "run-p dev:*",
+    "lint:scss": "stylelint source/scss/*.scss",
+    "lint:js": "standard *.js",
+    "lint:html": "htmlhint index.html",
+    "build:lint": "run-s lint:*",
+    "build:sass": "node-sass source/scss/styles.scss --output=compiled/css --output-style=compressed --source-map=true",
+    "deploy:surge": "surge --project . --domain gamenzz.surge.sh",
+    "deploy": "run-s build:* deploy:surge"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.0",
+    "node-sass": "^4.5.2",
+    "npm-run-all": "^4.0.2",
+    "standard": "^10.0.1",
+    "stylelint-config-standard": "^16.0.0",
+    "surge": "^0.19.0",
+    "htmlhint": "^0.9.13",
+    "stylelint": "^7.10.1"
+  }
+}
